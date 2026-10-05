@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe (X & O)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <main class="game-container">
+    <header class="game-header">
+      <div class="title-wrap">
+        <h1>Tic Tac Toe</h1>
+        <span class="badge">X & O Classic</span>
+      </div>
+
+      <div class="controls-bar">
+        <div class="mode-select">
+          <label for="gameMode">Mode:</label>
+          <select id="gameMode">
+            <option value="pvp">👥 2 Players (Local)</option>
+            <option value="ai-easy" selected>🤖 vs Computer (Easy)</option>
+            <option value="ai-hard">🧠 vs Computer (Smart)</option>
+          </select>
+        </div>
+
+        <button id="soundToggle" class="icon-btn" title="Toggle Sound" aria-label="Toggle Sound">
+          🔊
+        </button>
+      </div>
+    </header>
+
+    <!-- Scoreboard -->
+    <section class="scoreboard">
+      <div class="score-card player-x active" id="scoreCardX">
+        <div class="player-icon">X</div>
+        <div class="player-info">
+          <span class="player-name" id="nameX">Player X</span>
+          <span class="score-num" id="scoreX">0</span>
+        </div>
+      </div>
+
+      <div class="score-card tie-card">
+        <div class="player-icon">🤝</div>
+        <div class="player-info">
+          <span class="player-name">Ties</span>
+          <span class="score-num" id="scoreTies">0</span>
+        </div>
+      </div>
+
+      <div class="score-card player-o" id="scoreCardO">
+        <div class="player-icon">O</div>
+        <div class="player-info">
+          <span class="player-name" id="nameO">Computer</span>
+          <span class="score-num" id="scoreO">0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Turn Indicator / Status Message -->
+    <div class="status-banner" id="statusMessage">
+      <span class="turn-indicator">Turn: <strong class="turn-mark x">X</strong></span>
+    </div>
+
+    <!-- 3x3 Game Board -->
+    <section class="board-wrapper">
+      <div class="board" id="board" role="grid" aria-label="Tic Tac Toe Board">
+        <button class="cell" data-index="0" aria-label="Cell 1"></button>
+        <button class="cell" data-index="1" aria-label="Cell 2"></button>
+        <button class="cell" data-index="2" aria-label="Cell 3"></button>
+        <button class="cell" data-index="3" aria-label="Cell 4"></button>
+        <button class="cell" data-index="4" aria-label="Cell 5"></button>
+        <button class="cell" data-index="5" aria-label="Cell 6"></button>
+        <button class="cell" data-index="6" aria-label="Cell 7"></button>
+        <button class="cell" data-index="7" aria-label="Cell 8"></button>
+        <button class="cell" data-index="8" aria-label="Cell 9"></button>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <footer class="game-footer">
+      <button id="restartBtn" class="btn primary-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+        </svg>
+        New Round
+      </button>
+      <button id="resetScoreBtn" class="btn outline-btn">Reset Scores</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
